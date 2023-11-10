@@ -26,6 +26,7 @@ export default function Home() {
     const handGenerateSql = () => {
 const text =
 `
+--${nameStore}
 IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[${nameStore}]'))
 BEGIN
   EXEC sp_executesql N'CREATE PROCEDURE [dbo].[${nameStore}] AS select 1'
