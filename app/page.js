@@ -55,17 +55,18 @@ PRINT 'Altering SP [dbo].[${item.name}]'
             }
         })
      setGenerateSql( prevState => prevState = text)
-        console.log(generateSql)
+     console.log(generateSql)
     }
     const onFormSubmit = data => {
         let text = "";
         const regex = /\[(.*?)\]/;
 
     data.table.map(item => {
-        const matches = item.value.match(regex);
-        const nameColumn = matches ? matches[1] : null;
+        console.log(item.value)
+        const nameColumn = item.value.split(" ")[0];
+        console.log(nameColumn)
         setGenerateSql("")
-        if(nameColumn !== null){
+        if(nameColumn !== ""){
             text += `
 IF NOT EXISTS (
 SELECT 1
