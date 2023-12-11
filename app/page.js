@@ -68,6 +68,7 @@ PRINT 'Altering SP [dbo].[${item.name}]'
         setGenerateSql("")
         if(nameColumn !== ""){
             text += `
+-- dbo.${nameStore}
 IF NOT EXISTS (
 SELECT 1
 FROM sys.columns
